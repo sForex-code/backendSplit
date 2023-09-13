@@ -7,5 +7,5 @@ connectDB()
 
 
 app.listen(process.env.PORT,()=>{
-    console.log("server is working")
+    console.log(`server is working on ${process.env.PORT} port in ${process.env.NODE_ENV} mode `)
 })

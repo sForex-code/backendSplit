@@ -1,13 +1,12 @@
 import express from "express";
-import { findbyparams, register, statingpage, userData } from "../controller/userControler.js";
+import { login, logout, register, userData} from "../controller/userControler.js";
+import { isAuth } from "../middlewares/auth.js";
 
 const router =express.Router()
 
-
-router.get("/",statingpage)
+router.post("/login",login),
 router.post("/register",register)
-router.get("/user/data",userData) 
-router.get("/user/:id",findbyparams)
-
+router.get("/me",isAuth,userData)
+router.get("/logout",logout)
 
 export default router
